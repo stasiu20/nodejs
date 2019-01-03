@@ -3,6 +3,8 @@ const hbs = require('hbs');
 const fs = require('fs');
 var app = express();
 
+const port = process.env.PORT || 3000;
+
 hbs.registerPartials(__dirname + '/views/partials');
 hbs.registerHelper('getCurentYear', ()=>{
     return new Date().getFullYear();
@@ -44,4 +46,4 @@ app.set('view engine', 'hbs')
             errorMessage: 'Bad Getaway mother fucker'
         });
     })
-    .listen(3000,'localhost');
+    .listen(port,'localhost');
