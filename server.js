@@ -41,11 +41,16 @@ app.set('view engine', 'hbs')
             pageTitle: 'About Page',
         });
     })
+    .get('/project', (req, res)=>{
+        res.render('project.hbs', {
+            pageTitle: 'Projects',
+        })
+    })
     .get('/bad', (req,res) => {
         res.send({
             errorMessage: 'Bad Getaway mother fucker'
         });
     })
-    .listen(process.env.PORT || 3000, function(){
+    .listen(port, function(){
         console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
       });
